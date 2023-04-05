@@ -7,5 +7,5 @@ Class choosen is peacock
 | Attribute | Type | 
 |--------------|------|
 |peacock_species| String |
-|feather color | String|
+|feather_color | String|
 | age | Number|
