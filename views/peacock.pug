@@ -34,7 +34,12 @@ block content
     .row 
     
       each peacock in results
-        div(class="col-sm-2" style=`border:solid 5px Green` onclick=`buy(${results.indexOf(peacock)})`) 
+        div(class="col-sm-2" onclick=`buy(${results.indexOf(peacock)})`) 
           each value,key in peacock  
             = key + " : " + value
+            br
+  script.
+    function buy(index){
+      alert("You purchased item "+index)
+    }
             
