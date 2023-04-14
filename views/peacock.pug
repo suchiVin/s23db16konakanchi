@@ -1,45 +1,19 @@
 extends layout
 
 block content
-  -
-   let results =[
-      {
-        "peacock_species": " Indian peafoul",
-        "feather_color": "brightblue",
-        "age": 1
-      },
-      {
-        "peacock_species": " Green peafoul",
-        "feather_color": "Green",
-        "age": 2
-      },
-      {
-        "peacock_species": " black peafoul",
-        "feather_color": "brightblue",
-        "age": 3
-      },
-      {
-        "peacock_species": " Congo peafoul",
-        "feather_color": "emrald green",
-        "age": 5
-      },
-      {
-        "peacock_species": " White peafoul",
-        "feather_color": "White",
-        "age": 1
-      }
-    ]
+  - let items = results
   h1= title
   .container-fluid 
     .row 
-    
-      each peacock in results
-        div(class="col-sm-2" onclick=`buy(${results.indexOf(peacock)})`) 
-          each value,key in peacock  
-            = key + " : " + value
-            br
+      each cin in items
+        div(class="col-md-2" style=`border:dotted 3px grey` onclick=`buy(${items.indexOf(cin)})`) 
+          p.
+           peacock_species -  #{cin.peacock_species}
+          p.
+           feather_color -  #{cin.feather_color}
+          p.
+           age  -  #{cin.age}
   script.
     function buy(index){
       alert("You purchased item "+index)
     }
-            

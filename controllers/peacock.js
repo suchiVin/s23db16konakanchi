@@ -31,3 +31,16 @@ exports.peacock_list = async function(req, res) {
     res.send(`{"error": ${err}}`);
     }
     };
+
+    // VIEWS
+// Handle a show all view
+exports.peacock_view_all_Page = async function(req, res) {
+    try{
+        thepeacocks = await peacock.find();
+    res.render('peacock', { title: 'peacock Search Results', results: thepeacocks });
+    }
+    catch(err){
+    res.status(500);
+    res.send(`{"error": ${err}}`);
+    }
+    };
