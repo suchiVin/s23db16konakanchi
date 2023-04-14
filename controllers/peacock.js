@@ -19,3 +19,15 @@ res.send('NOT IMPLEMENTED: peacock delete DELETE ' + req.params.id);
 exports.peacock_update_put = function(req, res) {
 res.send('NOT IMPLEMENTED: peacock update PUT' + req.params.id);
 };
+
+// List of all peacock
+exports.peacock_list = async function(req, res) {
+    try{
+    thePeacock = await peacock.find();
+    res.send(thePeacock);
+    }
+    catch(err){
+    res.status(500);
+    res.send(`{"error": ${err}}`);
+    }
+    };
