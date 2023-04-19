@@ -1,0 +1,53 @@
+extends layout 
+ 
+block content 
+  h1= title 
+ 
+  if (toShow == null) 
+    h2 No instance to delete 
+  else 
+    - let peacockid = toShow._id 
+    - let peacock_species = toShow.peacock_species
+    - let feather_color  = toShow.feather_color 
+    - let age = toShow.age
+    - let actionid = "/resource/peacock/" + peacockid 
+    script let actionid = "#{actionid}" 
+    div 
+      div.row 
+        div(class='peacockAttr mr-3') peacock   ID is: 
+        div #{peacockid} 
+      div.row 
+        div(class='peacockAttr mr-3') peacock_species is: 
+        div #{peacock_species} 
+      div.row 
+        div(class='peacockAttr mr-3') feather_color is: 
+        div #{feather_color} 
+      div.row 
+        div(class='peacockAttr mr-3') age is: 
+        div #{age} 
+ 
+    button(class="btn btn-danger m-2" onclick="deleteOnid()") Delete 
+    button(class="btn btn-secondary m-2" onclick="cancel()") Cancel 
+ 
+  script. 
+    function cancel() { 
+      // Go back to the home page for the peacock collection 
+      window.location.href='/peacock' 
+    } 
+  script. 
+    function deleteOnid() { 
+      console.log("starting delete") 
+      // delete first 
+      fetch(actionid, { 
+        method: 'DELETE'      
+      }).then((resp) => { 
+        return resp.json(); // or resp.text() or whatever the server sends 
+      }).then((body) => { 
+        alert("Delete succeded") 
+        window.location.href='/peacock' 
+        // TODO handle body 
+      }).catch((error) => { 
+        // TODO handle error 
+        alert("Delete failed " + error ) 
+      }); 
+    }
