@@ -1,20 +1,23 @@
 extends layout
 block content
- h1= title
- - let peacockid = toShow._id
- - let peacock_species = toShow.peacock_species
- - let feather_color = toShow.feather_color
- - let age = toShow.age
- div
- div.row
- div(class='peacockAttr mr-3') peacock  ID is:
- div #{peacockid}
- div.row
- div(class='peacockAttr mr-3') peacock  species  is:
- div #{peacock_species}
- div.row
- div(class='peacockAttr mr-3') feather color is:
- div #{feather_color}
- div.row
- div(class='peacockAttr mr-3') peacock age is:
- div #{age}
+    h1= title
+    if (toShow == null) 
+      h2 No instance to detail 
+    else
+    - let peacockid = toShow._id
+    - let peacock_species = toShow.peacock_species
+    - let feather_color = toShow.feather_color
+    - let age = toShow.age
+    div
+    div.row
+    div(class='peacockAttr mr-3') peacock  ID is:
+    div #{peacockid}
+    div.row
+    div(class='peacockAttr mr-3') peacock  species  is:
+    div #{peacock_species}
+    div.row
+    div(class='peacockAttr mr-3') feather color is:
+    div #{feather_color}
+    div.row
+    div(class='peacockAttr mr-3') peacock age is:
+    div #{age}

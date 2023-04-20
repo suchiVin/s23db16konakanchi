@@ -1,9 +1,10 @@
 extends layout 
 
 block content 
-    h1= title 
-
-
+    h1= title
+    if (toShow == null) 
+      h2 No instance to detail 
+    else
     - let peacockid = toShow._id 
     - let peacock_species = toShow.peacock_species 
     - let feather_color  = toShow.feather_color
