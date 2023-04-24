@@ -3,12 +3,19 @@ extends layout
 block content
   - let peacocks  = results
   h1= title
+   - let create = `dispatch(\"/peacock/create\")`
+  button.btn( class="btn-primary", onclick= create) Create peacock dialogue boxes 
   div(class="container-fluid")
   div(class="row m-1")
     each peacock  in peacocks 
       - let destination = `dispatch(\"/peacock/update?id=${peacock._id}\")`
+      - let detail = `dispatch(\"/peacock/detail/?id=${peacock._id}")`
+      - let deletepeacock = `dispatch(\"/peacock/delete/?id=${peacock._id}")` 
       div(class="row-sm-2", class="m-1") Peacock #{peacock.peacock_species}(#{peacock.feather_color}) is #{peacock.age} 
         button.btn( class="btn-primary ml-1", onclick= destination) Update
+        button.btn( class="btn-secondary", onclick= detail) Details
+        button.btn( class="btn-warning", onclick= deletepeacock) Delete
+
 
   script.
     function dispatch(path){
