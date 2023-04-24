@@ -17,11 +17,11 @@ const secured = (req, res, next) => {
 /* GET peacocks */
 router.get('/', peacock_controlers.peacock_view_all_Page);
 /* GET detail peacock page */
-router.get('/detail', peacock_controlers.peacock_view_one_Page);
+router.get('/detail', secured, peacock_controlers.peacock_view_one_Page);
 /* GET create peacock page */
-router.get('/create', peacock_controlers.peacock_create_Page);
+router.get('/create', secured, peacock_controlers.peacock_create_Page);
 /* GET create update page */
 router.get('/update', secured, peacock_controlers.peacock_update_Page);
 /* GET delete peacock page */
-router.get('/delete', peacock_controlers.peacock_delete_Page);
+router.get('/delete',secured, peacock_controlers.peacock_delete_Page);
 module.exports = router;
