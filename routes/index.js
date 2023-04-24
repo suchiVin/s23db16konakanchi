@@ -50,7 +50,7 @@ router.get('/login', function(req, res) {
     res.render('login', { title: 'peacock App Login', user: req.user });
 });
 router.post('/login', passport.authenticate('local'), function(req, res) {
-    console.log("return url " + req.session.returnTo);
+   console.log("return url " + req.session.returnTo);
     if (req.session.returnTo)
         res.redirect(req.session.returnTo);
     res.redirect('/');
